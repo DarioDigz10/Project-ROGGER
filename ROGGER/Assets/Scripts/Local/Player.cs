@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
         }
     }
 
+    public GunController gun;
 
     private void Awake()
     {
@@ -34,7 +35,12 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        //MOVEMENT:
         Vector2 direction = new Vector2(playerInput.Vertical * speed, playerInput.Horizontal * speed);
         MoveController.Move(direction);
+        //GUN CONTROLLER:
+        if (playerInput.mLeftClicked) gun.isFiring = true;
+        if (playerInput.mLeftUp) gun.isFiring = false;
+
     }
 }
