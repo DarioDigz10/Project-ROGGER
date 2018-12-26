@@ -18,7 +18,7 @@ public class MoveController : MonoBehaviour
         Vector3 upMovement = forward * direction.x * Time.deltaTime;
         Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
 
-        transform.forward = heading;
+        if(heading != Vector3.zero) transform.forward = heading;
         transform.position += rightMovement + upMovement;
     }
 }
