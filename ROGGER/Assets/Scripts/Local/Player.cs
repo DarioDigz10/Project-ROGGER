@@ -3,15 +3,7 @@
 [RequireComponent(typeof(MoveController))]
 public class Player : MonoBehaviour
 {
-    [System.Serializable]
-    public class MouseInput
-    {
-        public Vector2 Damping;
-        public Vector2 Sensitivity;
-    }
-
     [SerializeField]float speed;
-    [SerializeField]MouseInput MouseControl;
 
     InputController playerInput;
 
@@ -38,9 +30,18 @@ public class Player : MonoBehaviour
         //MOVEMENT:
         Vector2 direction = new Vector2(playerInput.Vertical * speed, playerInput.Horizontal * speed);
         MoveController.Move(direction);
+        //LOOK AT:
+        Ray cameraRay = Camera.main.ScreenPointToRay(playerInput.mousePosition);
+        Plane ground = new Plane(Vector3.up, Vector3.zero);
+        float rayLength;
+        if(ground.Raycast(cameraRay, out rayLength))//If the ray comming from the camera hits something
+        {
+            Vector3 pointToLook = cameraRay.GetPoint(rayLength); //Get the intersection point
+            Debug.DrawLine(cameraRay.origin, pointToLook, Color.blue);
+            transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
+        }
         //GUN CONTROLLER:
         if (playerInput.mLeftClicked) gun.isFiring = true;
         if (playerInput.mLeftUp) gun.isFiring = false;
-
     }
 }

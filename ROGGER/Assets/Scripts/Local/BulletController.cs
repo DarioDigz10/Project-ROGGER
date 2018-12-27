@@ -4,21 +4,32 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
-    public float speed;
-    public float maxDistance;
-    [SerializeField] float travelledDist;
+    [SerializeField] public float speed;
+    [SerializeField] float timeToLive;
+    [SerializeField] public float damage;
 
-    // Start is called before the first frame update
-    void Start()
+    private ShakeCamera shake;
+
+    private void Start()
     {
-        
+        Destroy(gameObject, timeToLive);
+        shake = Camera.main.GetComponent<ShakeCamera>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
-        travelledDist += speed * Time.deltaTime;
-        if (travelledDist >= maxDistance) Destroy(this.gameObject);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        Destructible destructible = other.GetComponent<Destructible>();
+        if (destructible != null)
+        {
+            print(other.name);
+            destructible.takeDamage(damage);
+            int rand = Random.Range(0, 9);
+            if(rand > 2)  shake.camShake();
+        }
     }
 }
