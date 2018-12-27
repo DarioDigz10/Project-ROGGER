@@ -1,0 +1,43 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class atractionController : MonoBehaviour
+{
+	public GameObject[] obstaculos;
+	public int tamanio;
+
+	public class obstaculo
+	{
+		int atraccion = 0;
+
+		public obstaculo (int a){
+			atraccion = a;
+		}
+
+		public int getAtraccion(){
+			return atraccion;
+		}
+	}
+
+
+
+    void Start()
+    {
+		obstaculos = new GameObject[tamanio];
+		for (int i = 0; i < tamanio; i++) {
+
+			if (obstaculos [i].tag == "Enemy") {
+				obstaculos [i] = new obstaculo (1);
+
+			} else if (obstaculos [i].tag == "Trap") {
+				obstaculos [i] = new obstaculo (2);
+			}
+		}
+    }
+
+    void Update()
+    {
+        
+    }
+}
