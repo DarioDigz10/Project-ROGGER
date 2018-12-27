@@ -8,7 +8,7 @@ public class CameraController : MonoBehaviour
     Player player;
     Transform target;
     [SerializeField] Vector3 offset;
-    public float smoothSpeed = 12.5f;
+    [SerializeField] float smoothSpeed = 12.5f;
 
     void Awake()
     {

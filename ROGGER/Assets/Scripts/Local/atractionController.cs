@@ -7,11 +7,11 @@ public class atractionController : MonoBehaviour
 	public GameObject[] obstaculos;
 	public int tamanio;
 
-	public class obstaculo
+	public class Obstaculo
 	{
 		int atraccion = 0;
 
-		public obstaculo (int a){
+		public Obstaculo (int a){
 			atraccion = a;
 		}
 
@@ -24,16 +24,17 @@ public class atractionController : MonoBehaviour
 
     void Start()
     {
-		obstaculos = new GameObject[tamanio];
+        //ALEJANDRO HIJO, NECESITO EJECUTAR
+		/*obstaculos = new GameObject[tamanio];
 		for (int i = 0; i < tamanio; i++) {
 
 			if (obstaculos [i].tag == "Enemy") {
-				obstaculos [i] = new obstaculo (1);
+				obstaculos [i] = new Obstaculo (1);
 
 			} else if (obstaculos [i].tag == "Trap") {
-				obstaculos [i] = new obstaculo (2);
+				obstaculos [i] = new Obstaculo (2);
 			}
-		}
+		}*/
     }
 
     void Update()
