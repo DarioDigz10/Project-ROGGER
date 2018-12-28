@@ -40,8 +40,6 @@ public class Player : MonoBehaviour
             Debug.DrawLine(cameraRay.origin, pointToLook, Color.blue);
             transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
         }
-        //GUN CONTROLLER:
-        if (playerInput.mLeftClicked) gun.isFiring = true;
-        if (playerInput.mLeftUp) gun.isFiring = false;
+        
     }
 }
