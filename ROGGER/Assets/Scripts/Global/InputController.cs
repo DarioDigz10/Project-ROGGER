@@ -8,6 +8,7 @@ public class InputController : MonoBehaviour
     public Vector3 mousePosition;
     public bool mLeftClicked;
     public bool mLeftUp;
+    public bool FIre1;
 
     public void Update()
     {
@@ -16,5 +17,6 @@ public class InputController : MonoBehaviour
         mousePosition = Input.mousePosition;
         mLeftClicked = Input.GetMouseButtonDown(0);
         mLeftUp = Input.GetMouseButtonUp(0);
+        FIre1 = Input.GetButton("Fire1");
     }
 }

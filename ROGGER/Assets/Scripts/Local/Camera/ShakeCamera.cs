@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShakeCamera : MonoBehaviour
 {
     public Animator camAnim;
-    public void camShake()
+    public void Shake1()
     {
         camAnim.SetTrigger("Shake");
     }

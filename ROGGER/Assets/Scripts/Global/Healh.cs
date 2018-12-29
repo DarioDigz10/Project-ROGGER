@@ -2,15 +2,21 @@
 
 public class Healh : Destructible
 {
+    [SerializeField] float timeToRespawn;
     public override void takeDamage(float amount)
     {
         base.takeDamage(amount);
         print(hitPointsRemaining);
     }
 
+    private void OnEnable()
+    {
+        Reset();
+    }
+
     public override void Die()
     {
         base.Die();
-        print("Ah se murió cabron");
+        GameManager.Instance.Respawner.Despawn(gameObject, timeToRespawn);
     }
 }

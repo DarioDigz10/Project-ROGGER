@@ -17,8 +17,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    public GunController gun;
-
     private void Awake()
     {
         GameManager.Instance.Player = this;
