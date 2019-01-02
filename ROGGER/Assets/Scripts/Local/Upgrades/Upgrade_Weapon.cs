@@ -6,7 +6,7 @@ public class Upgrade_Weapon : MonoBehaviour
     public GameObject bala;
     private float targetTime;
     public float time;
-    private bool prueba=false;
+    private bool prueba = false;
 
     private void Start()
     {
@@ -14,13 +14,13 @@ public class Upgrade_Weapon : MonoBehaviour
     }
     void Update()
     {
-       if (Input.GetKeyDown("q") && prueba)
-       {
-         prueba = true;
-         bullet.damage *= 5;
+        if (Input.GetKeyDown("q") && prueba)
+        {
+            prueba = true;
+            bullet.damage *= 5;
             Debug.Log("arriba españa");
-         targetTime = time;
-       }
+            targetTime = time;
+        }
         if (targetTime >= 0 && !prueba)
         {
             targetTime -= Time.deltaTime;
@@ -28,12 +28,10 @@ public class Upgrade_Weapon : MonoBehaviour
         else
         {
             prueba = false;
-            bullet.damage /= 5;
-            Debug.Log("abajo andorra");
+            bullet.damage = 2;
+            //Debug.Log("abajo andorra");
         }
-
-
     }
 }
 
-    
+
