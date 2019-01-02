@@ -36,6 +36,7 @@ public class Destructible : MonoBehaviour
         damageTaken += amount;
         if (OnDamageRecived != null) OnDamageRecived();
         if (hitPointsRemaining <= 0) Die();
+        
     }
 
     public void Reset()

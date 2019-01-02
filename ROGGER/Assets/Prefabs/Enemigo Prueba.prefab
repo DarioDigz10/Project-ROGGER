@@ -104,5 +104,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8211c8db5a564a4e93f5dbdd24b5ebb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoints: 60
+  hitPoints: 600
   timeToRespawn: 2

@@ -300,7 +300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bala: {fileID: 681367611701467161, guid: 99cdfe10956ebfd49bd11bc1a189fc16, type: 3}
-  time: 2
+  time: 10
 --- !u!1 &954884789712905915
 GameObject:
   m_ObjectHideFlags: 0

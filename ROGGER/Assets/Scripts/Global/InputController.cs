@@ -19,6 +19,6 @@ public class InputController : MonoBehaviour
         mLeftClicked = Input.GetMouseButtonDown(0);
         mLeftUp = Input.GetMouseButtonUp(0);
         FIre1 = Input.GetButton("Fire1");
-        Hechizo1 = Input.GetKeyDown("q");
+        //Hechizo1 = Input.GetKeyDown("q");
     }
 }

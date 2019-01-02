@@ -4,33 +4,39 @@ public class Upgrade_Weapon : MonoBehaviour
 {
     BulletController bullet;
     public GameObject bala;
-    private float targetTime;
+    private float targetTime=2;
     public float time;
-    private bool prueba = false;
+    private bool prueba=false;
+    
 
     private void Start()
     {
         bullet = bala.GetComponent<BulletController>();
+        Debug.Log(bullet.damage);
     }
     void Update()
     {
-        if (Input.GetKeyDown("q") && prueba)
+        bullet.damage = 2;
+        Debug.Log(bullet.damage);
+        if (Input.GetKeyDown("q") && prueba==false)
         {
-            prueba = true;
-            bullet.damage *= 5;
-            Debug.Log("arriba españa");
             targetTime = time;
+            bullet.damage *= 5;
+            prueba = true;
+
         }
-        if (targetTime >= 0 && !prueba)
+        
+        if (targetTime > 1 && prueba==true)
         {
+            bullet.damage *= 5;
             targetTime -= Time.deltaTime;
         }
-        else
+        if(targetTime <= 1 && prueba==true)
         {
+            bullet.damage /= 5;
             prueba = false;
-            bullet.damage = 2;
-            //Debug.Log("abajo andorra");
         }
+        Debug.Log(bullet.damage);
     }
 }
 
