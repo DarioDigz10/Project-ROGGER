@@ -5,6 +5,7 @@ public class GameManager
 {
     public event System.Action<Player> OnPlayerJoined;
     private GameObject gameObject;
+
     private static GameManager m_Instance;
     public static GameManager Instance
     {
