@@ -5,18 +5,23 @@ using UnityEngine.AI;
 
 public class RoggerController : MonoBehaviour
 {
+	public GameObject floor;
 	private NavMeshAgent agent; 
 	private Vector3 target;
 	private float targetTime;
+
 	public float time;
 	public float radioPath;
+
+
 
 	//navMeshAgent propierties
 	public float speed;
 	public float angSpeed;
 	public float stopDistance;
 
-
+	private float dimX;
+	private float dimZ;
 
     void Start()
     {
@@ -25,11 +30,22 @@ public class RoggerController : MonoBehaviour
 		agent.angularSpeed = angSpeed;
 		agent.stoppingDistance = stopDistance;
 
+		dimX = floor.GetComponent<MeshRenderer> ().bounds.size.x / 2;
+		dimZ = floor.GetComponent<MeshRenderer> ().bounds.size.z / 2;
+
+		Debug.Log ("x: "+dimX);
+		Debug.Log ("z: "+dimZ);
+
 		targetTime = time;
     }
 
-    void Update()
+    void FixedUpdate()
     {
+		if (agent.remainingDistance <= 0.5) {
+			newPath ();
+		}
+
+		/*
 		if (targetTime <= 0) {
 			newPath ();
 			Debug.Log ("nuevo Path");
@@ -37,27 +53,24 @@ public class RoggerController : MonoBehaviour
 			targetTime -= Time.deltaTime;
 		}
 
-		Debug.Log (agent.remainingDistance + "distance");
-
-		if (agent.remainingDistance <= 0.5) {
-			agent.speed = 0;
-			agent.angularSpeed = 0;
-		}
+		//Debug.Log (agent.remainingDistance + " distance");
+		*/
     }
 
 	void newPath(){
 		float newX = Random.Range (this.transform.position.x + radioPath, this.transform.position.x - radioPath);
 		float newZ = Random.Range (this.transform.position.z + radioPath, this.transform.position.z - radioPath);
 		target = new Vector3 (newX, this.transform.position.y, newZ);
-		agent.SetDestination (target);
-		//Debug.DrawLine (this.transform.position, target);
 
-		if (agent.pathStatus == NavMeshPathStatus.PathInvalid) {
-			agent.ResetPath();
+		if (target.x > dimX || target.x < (dimX * -1) || target.z > dimZ || target.z < (dimZ * -1)) {
+			Debug.Log ("reiniciado");
+			newPath ();
+			//agent.SetDestination (Vector3.zero);
+		} else {
+			agent.SetDestination (target);
 		}
 
-		agent.speed = speed;
-		agent.angularSpeed = angSpeed;
+		Debug.Log (target);
 		targetTime = time;
 	}
 }
