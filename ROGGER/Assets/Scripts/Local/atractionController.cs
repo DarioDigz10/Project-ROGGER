@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class atractionController : MonoBehaviour
 {
-	public GameObject[] obstaculos;
-	public int tamanio;
 
-	public class Obstaculo
+	public class Obstacule
 	{
 		int atraccion = 0;
 
-		public Obstaculo (int a){
+		public Obstacule (int a){
 			atraccion = a;
 		}
 
