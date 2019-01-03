@@ -18,6 +18,7 @@ public class GameManager
                 m_Instance.gameObject.AddComponent<InputController>();
                 m_Instance.gameObject.AddComponent<Timer>();
                 m_Instance.gameObject.AddComponent<Respawner>();
+				m_Instance.gameObject.AddComponent<atractionController> ();
             }
             return m_Instance;
         }
@@ -66,4 +67,14 @@ public class GameManager
             if (OnPlayerJoined != null) OnPlayerJoined(m_Player);
         }
     }
+
+	private atractionController m_atractionController;
+	public atractionController atractionController
+	{
+		get
+		{
+			if (m_atractionController == null)  m_atractionController = gameObject.GetComponent<atractionController>();
+			return  m_atractionController;
+		}
+	}
 }
