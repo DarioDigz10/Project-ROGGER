@@ -12,12 +12,12 @@ public class Upgrade_Weapon : MonoBehaviour
     private void Start()
     {
         bullet = bala.GetComponent<BulletController>();
-        Debug.Log(bullet.damage);
+        //Debug.Log(bullet.damage);
     }
     void Update()
     {
         bullet.damage = 2;
-        Debug.Log(bullet.damage);
+        //Debug.Log(bullet.damage);
         if (Input.GetKeyDown("q") && prueba==false)
         {
             targetTime = time;
@@ -36,7 +36,7 @@ public class Upgrade_Weapon : MonoBehaviour
             bullet.damage /= 5;
             prueba = false;
         }
-        Debug.Log(bullet.damage);
+        //Debug.Log(bullet.damage);
     }
 }
 

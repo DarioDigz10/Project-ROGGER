@@ -10,6 +10,7 @@ public class InputController : MonoBehaviour
     public bool mLeftUp;
     public bool FIre1;
     public bool Hechizo1;
+    public bool Jump;
 
     public void Update()
     {
@@ -19,6 +20,7 @@ public class InputController : MonoBehaviour
         mLeftClicked = Input.GetMouseButtonDown(0);
         mLeftUp = Input.GetMouseButtonUp(0);
         FIre1 = Input.GetButton("Fire1");
+        Jump = Input.GetButtonDown("Jump");
         //Hechizo1 = Input.GetKeyDown("q");
     }
 }
