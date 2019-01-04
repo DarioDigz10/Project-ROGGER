@@ -27,7 +27,6 @@ public class Player : MonoBehaviour
         //MOVEMENT:
         Vector2 direction = new Vector2(playerInput.Vertical * speed, playerInput.Horizontal * speed);
         MoveController.Move(direction);
-        
         //LOOK AT:
         Ray cameraRay = Camera.main.ScreenPointToRay(playerInput.mousePosition);
         Plane ground = new Plane(Vector3.up, Vector3.zero);

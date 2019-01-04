@@ -1,44 +1,33 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class RoketJump : MonoBehaviour
 {
-    Rigidbody playerRigidbody;
+    Rigidbody pRBody;
     [SerializeField] float jumpSpeed;
     [SerializeField] float fallMultiplier = 2.5f;
-
     [SerializeField] float delay = 0.2f;
-    bool canJump = true;
-    bool jumpRequest = false;
 
     void Awake()
     {
-        playerRigidbody = GetComponent<Rigidbody>();
+        pRBody = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
-        if (GameManager.Instance.InputController.Jump && canJump)
+        if (GameManager.Instance.InputController.Jump)
         {
-            canJump = false;
-            jumpRequest = true;
+            GameManager.Instance.Timer.Add(() =>
+            {
+                pRBody.velocity = Vector3.up * jumpSpeed;
+            }, delay);
         }
     }
 
     private void FixedUpdate()
     {
-        if (jumpRequest)
+        if (pRBody.velocity.y < 0)
         {
-            jumpRequest = false;
-            GameManager.Instance.Timer.Add(() =>
-            {
-                playerRigidbody.velocity = Vector3.up * jumpSpeed;
-            }, delay);
-        }
-        if (playerRigidbody.velocity.y < 0)
-        {
-            playerRigidbody.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+            pRBody.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
         }
     }
 

@@ -22,7 +22,7 @@ public class CameraController : MonoBehaviour
         target = player.transform;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         Vector3 finalPos = target.position + offset;
         transform.position = Vector3.Lerp(transform.position, finalPos, smoothSpeed * Time.deltaTime);
