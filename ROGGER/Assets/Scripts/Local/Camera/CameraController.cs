@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    Player player;
-    Transform target;
+    [SerializeField] Player player;
+    [SerializeField] Transform target;
     [SerializeField] Vector3 offset;
     [SerializeField] float smoothSpeed = 12.5f;
 
