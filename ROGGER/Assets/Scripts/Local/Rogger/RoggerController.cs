@@ -7,12 +7,12 @@ public class RoggerController : MonoBehaviour
 {
 	public GameObject floor;
 	private NavMeshAgent agent; 
-	private Vector3 target;
+	[HideInInspector] public Vector3 target;
 	private float targetTime;
 
 	public float time;
 	public float radioPath;
-
+	public float radioSearch;
 
 
 	//navMeshAgent propierties
@@ -22,6 +22,8 @@ public class RoggerController : MonoBehaviour
 
 	private float dimX;
 	private float dimZ;
+
+	private bool atraido;
 
     void Start()
     {
@@ -37,16 +39,23 @@ public class RoggerController : MonoBehaviour
 		Debug.Log ("z: "+dimZ);
 
 		targetTime = time;
+
+		if (radioSearch == 0) {
+			radioSearch = radioPath;
+		}
+
+		atraido = false;
     }
 
     void FixedUpdate()
     {
+		/*
 		if (agent.remainingDistance <= 0.5) {
 			newPath ();
-		}
+		}*/
 
-		/*
-		if (targetTime <= 0) {
+
+		if (targetTime <= 0 && atraido == false) {
 			newPath ();
 			Debug.Log ("nuevo Path");
 		} else {
@@ -54,7 +63,7 @@ public class RoggerController : MonoBehaviour
 		}
 
 		//Debug.Log (agent.remainingDistance + " distance");
-		*/
+
     }
 
 	void newPath(){
@@ -72,5 +81,11 @@ public class RoggerController : MonoBehaviour
 
 		Debug.Log (target);
 		targetTime = time;
+	}
+
+	public void atractiblePath(Vector3 destino){
+		Debug.Log (destino);
+		agent.SetDestination (destino);
+		atraido = true;
 	}
 }

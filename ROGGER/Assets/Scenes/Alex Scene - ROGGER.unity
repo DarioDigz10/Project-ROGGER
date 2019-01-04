@@ -144,7 +144,7 @@ Transform:
   - {fileID: 2088622326}
   - {fileID: 57442956}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &57442955
 GameObject:
@@ -432,13 +432,14 @@ GameObject:
   - component: {fileID: 1001837860}
   - component: {fileID: 1001837859}
   - component: {fileID: 1001837858}
+  - component: {fileID: 1001837862}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1001837858
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -509,8 +510,21 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1001837862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001837857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d55f48d24f1ab043aef50e20961640e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AtractionValue: 3
 --- !u!1001 &1287473054
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -561,7 +575,7 @@ PrefabInstance:
     - target: {fileID: 954884789643539832, guid: 95d45c990a4ddc24a9e5d667c3d94d7f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 954884789643539832, guid: 95d45c990a4ddc24a9e5d667c3d94d7f,
         type: 3}
@@ -592,13 +606,14 @@ GameObject:
   - component: {fileID: 1731551635}
   - component: {fileID: 1731551634}
   - component: {fileID: 1731551633}
+  - component: {fileID: 1731551637}
   m_Layer: 0
   m_Name: Trap (1)
   m_TagString: Trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1731551633
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -671,6 +686,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1731551637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731551632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12115d26db7a480408422253b2b8a3d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AtractionValue: 2
 --- !u!1 &1740952006
 GameObject:
   m_ObjectHideFlags: 0
@@ -881,7 +909,7 @@ PrefabInstance:
     - target: {fileID: 2709665561803065401, guid: 39b6cacdd13f9da4c9aefd3b2e3a105a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2709665561803065401, guid: 39b6cacdd13f9da4c9aefd3b2e3a105a,
         type: 3}
@@ -912,6 +940,7 @@ GameObject:
   - component: {fileID: 1865251133}
   - component: {fileID: 1865251132}
   - component: {fileID: 1865251131}
+  - component: {fileID: 1865251135}
   m_Layer: 0
   m_Name: Trap
   m_TagString: Trap
@@ -985,12 +1014,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1865251130}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.94, y: 0.5, z: -8.63}
+  m_LocalPosition: {x: 10, y: 0.5, z: -8.63}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1865251135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865251130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12115d26db7a480408422253b2b8a3d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AtractionValue: 1
 --- !u!1 &1939466186
 GameObject:
   m_ObjectHideFlags: 0
@@ -1008,7 +1050,7 @@ GameObject:
   - component: {fileID: 1939466193}
   m_Layer: 0
   m_Name: Rogger
-  m_TagString: Untagged
+  m_TagString: ROGGER
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1117,7 +1159,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1939466186}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: -14.58, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1130,14 +1172,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1939466186}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c26247714b178d48b71e74f83cea31b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   floor: {fileID: 412516823}
+  target: {x: 0, y: 0, z: 0}
   time: 2
   radioPath: 10
+  radioSearch: 5
   speed: 8
   angSpeed: 500
   stopDistance: 0.1
