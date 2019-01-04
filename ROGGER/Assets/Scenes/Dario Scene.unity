@@ -268,7 +268,7 @@ Transform:
   m_GameObject: {fileID: 1081794127}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.36537486, y: 0.49439594, z: 0.019306362}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.5, y: 1, z: 2.5}
   m_Children:
   - {fileID: 1085717199}
   m_Father: {fileID: 0}
@@ -337,7 +337,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a272b0dbfcae59048b879588e834e496, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -365,27 +365,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1085717198}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1518731214 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 954884789643539834, guid: 95d45c990a4ddc24a9e5d667c3d94d7f,
-    type: 3}
-  m_PrefabInstance: {fileID: 954884790366690515}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1518731221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1518731214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c57dc2bce30e0804ab100b028137ac88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpSpeed: 10
-  fallMultiplier: 3
-  delay: 0.2
 --- !u!1001 &1729228275
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -522,18 +501,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4830305315180321779, guid: 95d45c990a4ddc24a9e5d667c3d94d7f,
-        type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4830305315180321779, guid: 95d45c990a4ddc24a9e5d667c3d94d7f,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 105151858834272995, guid: 95d45c990a4ddc24a9e5d667c3d94d7f, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95d45c990a4ddc24a9e5d667c3d94d7f, type: 3}
 --- !u!1001 &2709665562438033690
 PrefabInstance:

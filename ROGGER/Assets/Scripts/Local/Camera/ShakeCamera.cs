@@ -9,4 +9,9 @@ public class ShakeCamera : MonoBehaviour
     {
         camAnim.SetTrigger("Shake");
     }
+
+    public void Shake2()
+    {
+        camAnim.SetTrigger("Shake_RJ");
+    }
 }

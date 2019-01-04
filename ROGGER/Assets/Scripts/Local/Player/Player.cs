@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
         playerInput = GameManager.Instance.InputController;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         //MOVEMENT:
         Vector2 direction = new Vector2(playerInput.Vertical * speed, playerInput.Horizontal * speed);
