@@ -331,9 +331,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c57dc2bce30e0804ab100b028137ac88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 9
+  jumpForce: 12
   fallMultiplier: 3.5
   delay: 0.2
+  explsionRadius: 5
+  explsionForce: 700
+  explosionEffect: {fileID: 5582827468283090684, guid: 94739e76671834341bf200179eac3cbc,
+    type: 3}
 --- !u!1 &954884789712905915
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,14 +2,18 @@
 
 public class RoketJump : MonoBehaviour
 {
-    Rigidbody pRBody;
     [SerializeField] float jumpForce;
     [SerializeField] float fallMultiplier = 2.5f;
     [SerializeField] float delay = 0.2f;
+    [SerializeField] float explsionRadius = 5f;
+    [SerializeField] float explsionForce = 700f;
+
+    public GameObject explosionEffect;
 
     bool jumpRequest = false;
     bool jumping = false;
 
+    private Rigidbody pRBody;
     private ShakeCamera shake;
 
     void Awake()
@@ -35,6 +39,7 @@ public class RoketJump : MonoBehaviour
             GameManager.Instance.Timer.Add(() =>
             {
                 pRBody.velocity = Vector3.up * jumpForce;
+                Explode();
             }, delay);
         }
         if (pRBody.velocity.y < 0)
@@ -47,6 +52,20 @@ public class RoketJump : MonoBehaviour
     {
         jumpRequest = false;
         jumping = false;
+    }
+
+    void Explode()
+    {
+        Instantiate(explosionEffect, transform.position, transform.rotation);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, explsionRadius);
+        foreach(Collider nearObj in colliders)
+        {
+            Rigidbody rb = nearObj.GetComponent<Rigidbody>();
+            if(rb != null)
+            {
+                rb.AddExplosionForce(explsionForce, transform.position, explsionRadius);
+            }
+        }
     }
 
 }
