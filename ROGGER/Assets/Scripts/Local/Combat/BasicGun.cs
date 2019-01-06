@@ -7,6 +7,7 @@ public class BasicGun : Shooter
     public int pelletCount;
     public float spreadAngle;
     List<Quaternion> pellets;
+    [SerializeField] float damage;
 
     public void Awake()
     {
@@ -29,6 +30,7 @@ public class BasicGun : Shooter
                 BulletController newBullet = Instantiate(bullet, firePoint.position, firePoint.rotation) as BulletController;
                 newBullet.transform.rotation = Quaternion.RotateTowards(newBullet.transform.rotation, pellets[i], spreadAngle);
                 newBullet.speed = shotSpeed;
+                if(damage != 0f) newBullet.damage = damage;
                 newBullet.timeToLive = 1f;
                 i++;
             }

@@ -6,7 +6,6 @@ public class Healh : Destructible
     public override void takeDamage(float amount)
     {
         base.takeDamage(amount);
-        print(hitPointsRemaining);
     }
 
     private void OnEnable()

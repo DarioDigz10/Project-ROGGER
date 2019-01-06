@@ -9,7 +9,7 @@ public class InputController : MonoBehaviour
     public bool mLeftClicked;
     public bool mLeftUp;
     public bool FIre1;
-    public bool Hechizo1;
+    public bool MejorarArma;
     public bool Jump;
 
     public void Update()
@@ -21,6 +21,6 @@ public class InputController : MonoBehaviour
         mLeftUp = Input.GetMouseButtonUp(0);
         FIre1 = Input.GetButton("Fire1");
         Jump = Input.GetButtonDown("Jump");
-        //Hechizo1 = Input.GetKeyDown("q");
+        MejorarArma = Input.GetKeyDown("q");
     }
 }

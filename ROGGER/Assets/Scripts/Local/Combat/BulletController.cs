@@ -5,8 +5,8 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
     [SerializeField] public float speed = 10f;
-    [SerializeField] public float timeToLive;
-    [SerializeField] public float damage=2f;
+    [SerializeField] public float timeToLive ;
+    [SerializeField] public float damage = 2f;
 
     private ShakeCamera shake;
 
@@ -26,10 +26,8 @@ public class BulletController : MonoBehaviour
         Destructible destructible = other.GetComponent<Destructible>();
         if (destructible != null)
         {
-            print(other.name);
             destructible.takeDamage(damage);
-            int rand = Random.Range(0, 9);
-            if(rand > 2)  shake.Shake1();
+            shake.Shake1();
         }
     }
 }
