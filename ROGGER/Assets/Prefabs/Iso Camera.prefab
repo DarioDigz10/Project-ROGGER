@@ -44,7 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bdec44621a1a1a42ae0f5e2392e1239, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: -10, y: 10, z: -10}
+  player: {fileID: 0}
+  target: {fileID: 0}
+  offset: {x: -20, y: 20, z: -20}
   smoothSpeed: 12.5
 --- !u!1 &2709665561996168020
 GameObject:
