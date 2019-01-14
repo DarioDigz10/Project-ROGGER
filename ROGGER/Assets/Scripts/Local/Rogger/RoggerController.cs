@@ -7,7 +7,7 @@ public class RoggerController : MonoBehaviour
 {
 	public GameObject floor;
 	private NavMeshAgent agent; 
-	[HideInInspector] public Vector3 target;
+	private Vector3 target;
 	private float targetTime;
 
 	public float time;
@@ -24,6 +24,7 @@ public class RoggerController : MonoBehaviour
 	private float dimZ;
 
 	private bool atraido;
+	[HideInInspector] public bool search;
 
     void Start()
     {
@@ -45,6 +46,7 @@ public class RoggerController : MonoBehaviour
 		}
 
 		atraido = false;
+		search = false;
     }
 
     void FixedUpdate()
@@ -54,10 +56,12 @@ public class RoggerController : MonoBehaviour
 			newPath ();
 		}*/
 
-
-		if (targetTime <= 0 && atraido == false) {
-			newPath ();
-			Debug.Log ("nuevo Path");
+		if (targetTime <= 0) {
+			search = true;
+			if(atraido == false){
+				newPath ();
+				Debug.Log ("nuevo Path");
+			}
 		} else {
 			targetTime -= Time.deltaTime;
 		}
@@ -72,19 +76,19 @@ public class RoggerController : MonoBehaviour
 		target = new Vector3 (newX, this.transform.position.y, newZ);
 
 		if (target.x > dimX || target.x < (dimX * -1) || target.z > dimZ || target.z < (dimZ * -1)) {
-			Debug.Log ("reiniciado");
+			//Debug.Log ("reiniciado");
 			newPath ();
 			//agent.SetDestination (Vector3.zero);
 		} else {
 			agent.SetDestination (target);
 		}
 
-		Debug.Log (target);
+		//Debug.Log (target);
 		targetTime = time;
 	}
 
 	public void atractiblePath(Vector3 destino){
-		Debug.Log (destino);
+		Debug.Log (destino + "ATRAIDO DIOS MIO HAZ QUE PARE");
 		agent.SetDestination (destino);
 		atraido = true;
 	}
