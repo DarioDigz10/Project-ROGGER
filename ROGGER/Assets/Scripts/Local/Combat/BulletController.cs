@@ -5,7 +5,7 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
     [SerializeField] public float speed = 10f;
-    [SerializeField] public float timeToLive ;
+    [SerializeField] public float timeToLive;
     [SerializeField] public float damage = 2f;
 
     private ShakeCamera shake;

@@ -3,6 +3,7 @@
 [RequireComponent(typeof(MoveController))]
 public class Player : MonoBehaviour
 {
+    [Header("Player Movement")]
     [SerializeField] float speed;
     InputController playerInput;
 
@@ -15,7 +16,7 @@ public class Player : MonoBehaviour
             return m_moveController;
         }
     }
-
+    [Header("Rocket Jump variables")]
     [SerializeField] float jumpForce;
     [SerializeField] float fallMultiplier = 2.5f;
     [SerializeField] float delay = 0.2f;
