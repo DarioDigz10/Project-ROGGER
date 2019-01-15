@@ -362,6 +362,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3319648769800052949}
   - component: {fileID: 3319648769800052948}
+  - component: {fileID: 2410228570828571674}
   m_Layer: 9
   m_Name: Basic Gun
   m_TagString: Untagged
@@ -404,6 +405,23 @@ MonoBehaviour:
   canFire: 0
   pelletCount: 20
   spreadAngle: 5
+--- !u!114 &2410228570828571674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3319648769800052947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 902d6d93a5cc08c428d0d41bd4182419, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxAmmo: 50
+  reloadTime: 1.5
+  clipSize: 5
+  inventory: {fileID: 616770200912491702}
+  shotsFiredInClip: 0
 --- !u!1 &3319648770098093036
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ public class InputController : MonoBehaviour
     public bool FIre1;
     public bool MejorarArma;
     public bool Jump;
+    public bool Reload;
 
     public void Update()
     {
@@ -21,6 +22,7 @@ public class InputController : MonoBehaviour
         mLeftUp = Input.GetMouseButtonUp(0);
         FIre1 = Input.GetButton("Fire1");
         Jump = Input.GetButtonDown("Jump");
-        MejorarArma = Input.GetKeyDown("q");
+        MejorarArma = Input.GetKeyDown(KeyCode.Q);
+        Reload = Input.GetKey(KeyCode.R);
     }
 }
