@@ -5,4 +5,9 @@ using UnityEngine;
 public class EnemySetup : MonoBehaviour
 {
 	public int AtractionValue;
+	public bool visitado;
+
+	void Awake(){
+		visitado = false;
+	}
 }

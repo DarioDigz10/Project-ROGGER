@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+[RequireComponent(typeof(atractionController))]
 public class RoggerController : MonoBehaviour
 {
 	public GameObject floor;
@@ -26,8 +27,21 @@ public class RoggerController : MonoBehaviour
 	private bool atraido;
 	[HideInInspector] public bool search;
 
+	//[HideInInspector] public bool busqueda;
+
+	private atractionController m_atractionController;
+	/*public atractionController atractionController
+	{
+		get
+		{
+			if (m_atractionController == null) m_atractionController = GetComponent<atractionController>();
+			return m_atractionController;
+		}
+	}*/
+
     void Start()
     {
+		m_atractionController = GameManager.Instance.atractionController;
 		agent = this.GetComponent<NavMeshAgent> ();
 		agent.speed = speed;
 		agent.angularSpeed = angSpeed;
@@ -46,7 +60,8 @@ public class RoggerController : MonoBehaviour
 		}
 
 		atraido = false;
-		search = false;
+		//search = false;
+		//busqueda = false;
     }
 
     void FixedUpdate()
@@ -57,12 +72,14 @@ public class RoggerController : MonoBehaviour
 		}*/
 
 		if (targetTime <= 0) {
-			search = true;
+			//search = true;
+			//busqueda = true;
+			atraido = false;
+			m_atractionController.Search();
 			if(atraido == false){
-				newPath ();
-				Debug.Log ("nuevo Path");
+				newPath ();				
 			}
-		} else {
+		} else {			
 			targetTime -= Time.deltaTime;
 		}
 
@@ -71,25 +88,29 @@ public class RoggerController : MonoBehaviour
     }
 
 	void newPath(){
-		float newX = Random.Range (this.transform.position.x + radioPath, this.transform.position.x - radioPath);
-		float newZ = Random.Range (this.transform.position.z + radioPath, this.transform.position.z - radioPath);
-		target = new Vector3 (newX, this.transform.position.y, newZ);
+		//if (atraido == false) {
+			Debug.Log ("nuevo Path");
+			float newX = Random.Range (this.transform.position.x + radioPath, this.transform.position.x - radioPath);
+			float newZ = Random.Range (this.transform.position.z + radioPath, this.transform.position.z - radioPath);
+			target = new Vector3 (newX, this.transform.position.y, newZ);
 
-		if (target.x > dimX || target.x < (dimX * -1) || target.z > dimZ || target.z < (dimZ * -1)) {
-			//Debug.Log ("reiniciado");
-			newPath ();
-			//agent.SetDestination (Vector3.zero);
-		} else {
-			agent.SetDestination (target);
-		}
+			if (target.x > dimX || target.x < (dimX * -1) || target.z > dimZ || target.z < (dimZ * -1)) {
+				//Debug.Log ("reiniciado");
+				newPath ();
+				//agent.SetDestination (Vector3.zero);
+			} else {
+				agent.SetDestination (target);
+			}
 
-		//Debug.Log (target);
-		targetTime = time;
+			//Debug.Log (target);
+			targetTime = time;
+		//}
 	}
 
 	public void atractiblePath(Vector3 destino){
 		Debug.Log (destino + "ATRAIDO DIOS MIO HAZ QUE PARE");
 		agent.SetDestination (destino);
 		atraido = true;
+		targetTime = time;
 	}
 }

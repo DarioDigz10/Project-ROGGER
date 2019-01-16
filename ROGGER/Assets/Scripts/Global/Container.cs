@@ -49,10 +49,10 @@ public class Container : MonoBehaviour
     public System.Guid Add(string name, int maximum)
     {
         items.Add(new ContainerItem
-        {
-            Maximum = maximum,
-            Name = name
-        });
+       {
+           Maximum = maximum,
+           Name = name
+       });
         return items.Last().Id;
     }
 

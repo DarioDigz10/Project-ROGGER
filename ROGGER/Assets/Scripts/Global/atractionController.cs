@@ -18,11 +18,14 @@ public class atractionController : MonoBehaviour
 		valorAtraccionObjetivo = 0;
     }
 
-	void FixedUpdate(){
+	public void Search(){
 
-		/*if (rCtrl.search == true) {
+		Debug.Log ("SEARCH EN AC: " + rCtrl.search);
+
+		//if (rCtrl.search == true) {
 			areaDetection ();
-		}*/
+			//rCtrl.busqueda = false;
+		//}
 
 	}
 
@@ -53,11 +56,17 @@ public class atractionController : MonoBehaviour
 			}
 		}
 
-		if (objetivo != null) {
-			rCtrl.atractiblePath (objetivo.position);
+		if (objetivo != null) {			
+			if (objetivo.gameObject.CompareTag ("Enemy") && objetivo.gameObject.GetComponent<EnemySetup> ().visitado == false) {
+				rCtrl.atractiblePath (objetivo.position);
+				objetivo.gameObject.GetComponent<EnemySetup> ().visitado = true;
+			} else if (objetivo.gameObject.CompareTag ("Trap") && objetivo.gameObject.GetComponent<TrapSetup> ().visitado == true) {
+				rCtrl.atractiblePath (objetivo.position);
+				objetivo.gameObject.GetComponent<TrapSetup> ().visitado = true;
+			}
 			valorAtraccionObjetivo = 0;
 		}
-
+			
 	}
 
 }
