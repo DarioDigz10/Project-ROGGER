@@ -71,7 +71,7 @@ public class RoggerController : MonoBehaviour
 			newPath ();
 		}*/
 
-		if (targetTime <= 0) {
+		if (targetTime <= 0 && agent.remainingDistance <= 0.5) {
 			//search = true;
 			//busqueda = true;
 			atraido = false;
@@ -89,7 +89,7 @@ public class RoggerController : MonoBehaviour
 
 	void newPath(){
 		//if (atraido == false) {
-			Debug.Log ("nuevo Path");
+			//Debug.Log ("nuevo Path");
 			float newX = Random.Range (this.transform.position.x + radioPath, this.transform.position.x - radioPath);
 			float newZ = Random.Range (this.transform.position.z + radioPath, this.transform.position.z - radioPath);
 			target = new Vector3 (newX, this.transform.position.y, newZ);
@@ -102,7 +102,7 @@ public class RoggerController : MonoBehaviour
 				agent.SetDestination (target);
 			}
 
-			//Debug.Log (target);
+			Debug.Log (target);
 			targetTime = time;
 		//}
 	}

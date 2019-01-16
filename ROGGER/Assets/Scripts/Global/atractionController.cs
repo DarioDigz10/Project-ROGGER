@@ -39,7 +39,7 @@ public class atractionController : MonoBehaviour
 				Debug.Log ("EL OBJETO ES UNA TRAMPA");
 				tAtractionValue = matame.GetComponent<TrapSetup> ().AtractionValue;
 
-				if (valorAtraccionObjetivo <= tAtractionValue) {
+				if (valorAtraccionObjetivo <= tAtractionValue && matame.gameObject.GetComponent<TrapSetup> ().visitado == false) {
 					
 					valorAtraccionObjetivo = tAtractionValue;
 					objetivo = matame.transform;
@@ -48,7 +48,7 @@ public class atractionController : MonoBehaviour
 				Debug.Log ("EL OBJETO ES UN ENEMIGO");
 				eAtractionValue = matame.GetComponent<EnemySetup> ().AtractionValue;
 
-				if (valorAtraccionObjetivo <= eAtractionValue) {
+				if (valorAtraccionObjetivo <= eAtractionValue && matame.gameObject.GetComponent<EnemySetup> ().visitado == false) {
 					
 					valorAtraccionObjetivo = eAtractionValue;
 					objetivo = matame.transform;
@@ -57,15 +57,16 @@ public class atractionController : MonoBehaviour
 		}
 
 		if (objetivo != null) {			
-			if (objetivo.gameObject.CompareTag ("Enemy") && objetivo.gameObject.GetComponent<EnemySetup> ().visitado == false) {
+			if (objetivo.gameObject.CompareTag ("Enemy") /*&& objetivo.gameObject.GetComponent<EnemySetup> ().visitado == false*/) {
 				rCtrl.atractiblePath (objetivo.position);
 				objetivo.gameObject.GetComponent<EnemySetup> ().visitado = true;
-			} else if (objetivo.gameObject.CompareTag ("Trap") && objetivo.gameObject.GetComponent<TrapSetup> ().visitado == true) {
+			} else if (objetivo.gameObject.CompareTag ("Trap")/* && objetivo.gameObject.GetComponent<TrapSetup> ().visitado == false*/) {
 				rCtrl.atractiblePath (objetivo.position);
 				objetivo.gameObject.GetComponent<TrapSetup> ().visitado = true;
 			}
-			valorAtraccionObjetivo = 0;
 		}
+		objetivo = null;
+		valorAtraccionObjetivo = 0;
 			
 	}
 
