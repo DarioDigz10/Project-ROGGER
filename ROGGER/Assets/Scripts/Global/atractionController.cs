@@ -20,9 +20,9 @@ public class atractionController : MonoBehaviour
 
 	void FixedUpdate(){
 
-		if (rCtrl.search == true) {
+		/*if (rCtrl.search == true) {
 			areaDetection ();
-		}
+		}*/
 
 	}
 

@@ -2,16 +2,21 @@
 
 public class InputController : MonoBehaviour
 {
+    //MOVEMENT:
     public float Vertical;
     public float Horizontal;
+    public bool Jump;
     //MOUSE:
     public Vector3 mousePosition;
     public bool mLeftClicked;
     public bool mLeftUp;
-    public bool FIre1;
-    public bool MejorarArma;
-    public bool Jump;
+    public bool Fire;
+    public bool MouseWheelUp;
+    public bool MouseWheelDown;
+    //ACTIONS:
     public bool Reload;
+    //SPELLS:
+    public bool MejorarArma;
 
     public void Update()
     {
@@ -20,9 +25,11 @@ public class InputController : MonoBehaviour
         mousePosition = Input.mousePosition;
         mLeftClicked = Input.GetMouseButtonDown(0);
         mLeftUp = Input.GetMouseButtonUp(0);
-        FIre1 = Input.GetButton("Fire1");
+        Fire = Input.GetButton("Fire1");
         Jump = Input.GetButtonDown("Jump");
         MejorarArma = Input.GetKeyDown(KeyCode.Q);
         Reload = Input.GetKey(KeyCode.R);
+        MouseWheelUp = Input.GetAxis("Mouse ScrollWheel")>0;
+        MouseWheelDown = Input.GetAxis("Mouse ScrollWheel")<0;
     }
 }

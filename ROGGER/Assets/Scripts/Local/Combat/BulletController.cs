@@ -27,7 +27,9 @@ public class BulletController : MonoBehaviour
         if (destructible != null)
         {
             destructible.takeDamage(damage);
+            Destroy(gameObject);
             shake.Shake1();
+            GameManager.Instance.Timer.DoBulletTime(0.01f, 2f);
         }
     }
 }

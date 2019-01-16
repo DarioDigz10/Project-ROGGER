@@ -58,10 +58,10 @@ public class RoketJump : MonoBehaviour
     {
         Instantiate(explosionEffect, transform.position, transform.rotation);
         Collider[] colliders = Physics.OverlapSphere(transform.position, explsionRadius);
-        foreach(Collider nearObj in colliders)
+        foreach (Collider nearObj in colliders)
         {
             Rigidbody rb = nearObj.GetComponent<Rigidbody>();
-            if(rb != null)
+            if (rb != null)
             {
                 rb.AddExplosionForce(explsionForce, transform.position, explsionRadius);
             }

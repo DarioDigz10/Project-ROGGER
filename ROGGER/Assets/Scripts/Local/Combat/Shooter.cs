@@ -11,6 +11,11 @@ public class Shooter : MonoBehaviour
     public float shotSpeed;
     public bool canFire;
 
+    public void Equip()
+    {
+        //TODO: asignar el transform al hueso adecuado del modelo cuando lo tengamos
+    }
+
     public WeaponReloader reloader;
     public void Reload()
     {
@@ -30,11 +35,14 @@ public class Shooter : MonoBehaviour
         canFire = false;
         if (Time.time < nextFireAllowed) return;
 
-        if(reloader != null)
+        if (reloader != null)
         {
-            print("HEY");
             if (reloader.IsReloading) return;
-            if (reloader.RoundsRemainingInClip == 0) return;
+            if (reloader.RoundsRemainingInClip == 0)
+            {
+                print("RECARGA GENIO (R)");
+                return;
+            }
             reloader.TakeFromClip(1);
         }
 
