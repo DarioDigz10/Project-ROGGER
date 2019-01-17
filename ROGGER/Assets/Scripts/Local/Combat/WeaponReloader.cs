@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class WeaponReloader : MonoBehaviour
 {
@@ -10,33 +8,31 @@ public class WeaponReloader : MonoBehaviour
     [SerializeField] Container inventory;
 
     public int shotsFiredInClip;
-    bool isReloading;
+    bool isReloading = false;
     System.Guid containerItemId;
 
     public int RoundsRemainingInClip
     {
-        get
-        {
+        get {
             return clipSize - shotsFiredInClip;
         }
     }
 
     public bool IsReloading
     {
-        get
-        {
+        get {
             return isReloading;
         }
     }
 
-    private void Awake()
-    {
+    private void Start() {
         containerItemId = inventory.Add(this.name, maxAmmo);
     }
 
-    public void Reload()
-    {
-        if (isReloading) return;
+    public void Reload() {
+        if (isReloading) {
+            return;
+        }
 
         isReloading = true;
 
@@ -44,14 +40,12 @@ public class WeaponReloader : MonoBehaviour
         GameManager.Instance.Timer.Add(() => { ExecuteReload(amountFromInventory); }, reloadTime);
     }
 
-    private void ExecuteReload(int amount)
-    {
-        isReloading = false;
+    private void ExecuteReload(int amount) {
         shotsFiredInClip -= amount;
+        isReloading = false;
     }
 
-    public void TakeFromClip(int amount)
-    {
+    public void TakeFromClip(int amount) {
         shotsFiredInClip += amount;
     }
 }

@@ -20,7 +20,7 @@ public class atractionController : MonoBehaviour
 
 	public void Search(){
 
-		Debug.Log ("SEARCH EN AC: " + rCtrl.search);
+		//Debug.Log ("SEARCH EN AC: " + rCtrl.search);
 
 		//if (rCtrl.search == true) {
 			areaDetection ();
@@ -30,13 +30,13 @@ public class atractionController : MonoBehaviour
 	}
 
 	void areaDetection(){
-		Debug.Log ("EFECTIVAMENTE SE COMPRUEBA EL AREA");
+		//Debug.Log ("EFECTIVAMENTE SE COMPRUEBA EL AREA");
 
 		Collider[] atraibles = Physics.OverlapSphere (rCtrl.gameObject.transform.position, rCtrl.radioSearch);
 
 		foreach (Collider matame in atraibles) {
 			if (matame.CompareTag ("Trap")) {
-				Debug.Log ("EL OBJETO ES UNA TRAMPA");
+				//Debug.Log ("EL OBJETO ES UNA TRAMPA");
 				tAtractionValue = matame.GetComponent<TrapSetup> ().AtractionValue;
 
 				if (valorAtraccionObjetivo <= tAtractionValue && matame.gameObject.GetComponent<TrapSetup> ().visitado == false) {
@@ -45,7 +45,7 @@ public class atractionController : MonoBehaviour
 					objetivo = matame.transform;
 				}
 			} else if (matame.CompareTag ("Enemy")) {
-				Debug.Log ("EL OBJETO ES UN ENEMIGO");
+				//Debug.Log ("EL OBJETO ES UN ENEMIGO");
 				eAtractionValue = matame.GetComponent<EnemySetup> ().AtractionValue;
 
 				if (valorAtraccionObjetivo <= eAtractionValue && matame.gameObject.GetComponent<EnemySetup> ().visitado == false) {
