@@ -107,7 +107,7 @@ public class RoggerController : MonoBehaviour
 
     public void atractiblePath(Vector3 destino) {
         Debug.Log(destino + "ATRAIDO DIOS MIO HAZ QUE PARE");
-        agent.SetDestination(destino);
+		agent.SetDestination(destino);
         atraido = true;
         targetTime = time;
     }

@@ -462,7 +462,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 694922273}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -554,7 +554,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1001837857}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -1088,6 +1088,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6792245589462773558, guid: 4bc3c85956d8fea4eb94bc9479fa71b8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6792245589462773558, guid: 4bc3c85956d8fea4eb94bc9479fa71b8,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bc3c85956d8fea4eb94bc9479fa71b8, type: 3}
 --- !u!1001 &8387723069965022738
@@ -1105,7 +1115,7 @@ PrefabInstance:
     - target: {fileID: 8387723070710010306, guid: 544a7a1af81cc534baea54417125ea77,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.53
+      value: -5.84
       objectReference: {fileID: 0}
     - target: {fileID: 8387723070710010306, guid: 544a7a1af81cc534baea54417125ea77,
         type: 3}
@@ -1115,7 +1125,7 @@ PrefabInstance:
     - target: {fileID: 8387723070710010306, guid: 544a7a1af81cc534baea54417125ea77,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.47
+      value: -0.95
       objectReference: {fileID: 0}
     - target: {fileID: 8387723070710010306, guid: 544a7a1af81cc534baea54417125ea77,
         type: 3}
