@@ -10,12 +10,12 @@ public class Player : MonoBehaviour
     private MoveController m_moveController;
     public MoveController MoveController
     {
-        get
-        {
+        get {
             if (m_moveController == null) m_moveController = GetComponent<MoveController>();
             return m_moveController;
         }
     }
+
     [Header("Rocket Jump variables")]
     [SerializeField] float jumpForce;
     [SerializeField] float fallMultiplier = 2.5f;
@@ -31,25 +31,21 @@ public class Player : MonoBehaviour
     private Rigidbody pRBody;
     private ShakeCamera shake;
 
-    private void Awake()
-    {
+    private void Awake() {
         GameManager.Instance.Player = this;
         playerInput = GameManager.Instance.InputController;
         pRBody = GetComponent<Rigidbody>();
         shake = Camera.main.GetComponent<ShakeCamera>();
     }
 
-    void Update()
-    {
-        if (GameManager.Instance.InputController.Jump && !jumping)
-        {
+    void Update() {
+        if (GameManager.Instance.InputController.Jump && !jumping) {
             jumpRequest = true;
             shake.Shake2();
         }
     }
 
-    private void FixedUpdate()
-    {
+    private void FixedUpdate() {
         //MOVEMENT:
         Vector2 direction = new Vector2(playerInput.Vertical * speed, playerInput.Horizontal * speed);
         MoveController.Move(direction);
@@ -64,8 +60,7 @@ public class Player : MonoBehaviour
             transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
         }
         //JUMP:
-        if (jumpRequest && !jumping)
-        {
+        if (jumpRequest && !jumping) {
             jumping = true;
             GameManager.Instance.Timer.Add(() =>
             {
@@ -73,27 +68,25 @@ public class Player : MonoBehaviour
                 Explode();
             }, delay);
         }
-        if (pRBody.velocity.y < 0)
-        {
+        if (pRBody.velocity.y > 2f) {
+            pRBody.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) / 2f * Time.deltaTime;
+        }
+        else if (pRBody.velocity.y < 0) {
             pRBody.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
         }
     }
 
-    private void OnCollisionEnter(Collision any)
-    {
+    private void OnCollisionEnter(Collision any) {
         jumpRequest = false;
         jumping = false;
     }
 
-    void Explode()
-    {
+    void Explode() {
         Instantiate(explosionEffect, transform.position, transform.rotation);
         Collider[] colliders = Physics.OverlapSphere(transform.position, explsionRadius);
-        foreach (Collider nearObj in colliders)
-        {
+        foreach (Collider nearObj in colliders) {
             Rigidbody rb = nearObj.GetComponent<Rigidbody>();
-            if (rb != null)
-            {
+            if (rb != null) {
                 rb.AddExplosionForce(explsionForce, transform.position, explsionRadius);
             }
         }
