@@ -18,8 +18,7 @@ public class InputController : MonoBehaviour
     //SPELLS:
     public bool MejorarArma;
 
-    public void Update()
-    {
+    public void Update() {
         Vertical = Input.GetAxis("Vertical");
         Horizontal = Input.GetAxis("Horizontal");
         mousePosition = Input.mousePosition;
@@ -29,7 +28,7 @@ public class InputController : MonoBehaviour
         Jump = Input.GetButtonDown("Jump");
         MejorarArma = Input.GetKeyDown(KeyCode.Q);
         Reload = Input.GetKey(KeyCode.R);
-        MouseWheelUp = Input.GetAxis("Mouse ScrollWheel")>0;
-        MouseWheelDown = Input.GetAxis("Mouse ScrollWheel")<0;
+        MouseWheelUp = Input.GetAxis("Mouse ScrollWheel") > 0;
+        MouseWheelDown = Input.GetAxis("Mouse ScrollWheel") < 0;
     }
 }
