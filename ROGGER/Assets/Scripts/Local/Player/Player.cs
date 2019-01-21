@@ -31,6 +31,16 @@ public class Player : MonoBehaviour
     private Rigidbody pRBody;
     private ShakeCamera shake;
 
+    [System.Serializable]
+    public struct Direction
+    {
+        public bool Up;
+        public bool Down;
+        public bool Right;
+        public bool Left;
+    }
+    [HideInInspector] public Direction lookDir;
+
     private void Awake() {
         GameManager.Instance.Player = this;
         playerInput = GameManager.Instance.InputController;
@@ -74,6 +84,16 @@ public class Player : MonoBehaviour
         else if (pRBody.velocity.y < 0) {
             pRBody.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
         }
+        //CHECK DiRECTION:
+        Vector3 playerRotation = transform.rotation.eulerAngles;
+        if (playerRotation.y > 0f && playerRotation.y <= 90f) lookDir.Up = true;
+        else lookDir.Up = false;
+        if (playerRotation.y > 90f && playerRotation.y <= 180f) lookDir.Right = true;
+        else lookDir.Right = false;
+        if (playerRotation.y > 180f && playerRotation.y <= 270f) lookDir.Down = true;
+        else lookDir.Down = false;
+        if (playerRotation.y > 270f && playerRotation.y <= 360f) lookDir.Left = true;
+        else lookDir.Left = false;
     }
 
     private void OnCollisionEnter(Collision any) {

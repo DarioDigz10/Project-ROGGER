@@ -407,6 +407,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90a6f94311a86994f9ffe296e6d8d123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 9022055036035253915}
+  player: {fileID: 0}
 --- !u!1 &3319648770454149050
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,6 +518,11 @@ MonoBehaviour:
   explsionForce: 700
   explosionEffect: {fileID: 5582827468283090684, guid: 94739e76671834341bf200179eac3cbc,
     type: 3}
+  lookDir:
+    Up: 0
+    Down: 0
+    Right: 0
+    Left: 0
 --- !u!114 &3319648770700083213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -555,7 +562,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 1
 --- !u!136 &7907864519167065497
 CapsuleCollider:
@@ -674,6 +681,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11900000, guid: 28a5e79925e3ce04a82856c16a572cbe, type: 3}
+      propertyPath: m_NearClipPlane
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 11900000, guid: 28a5e79925e3ce04a82856c16a572cbe, type: 3}
       propertyPath: m_FarClipPlane
       value: 100
       objectReference: {fileID: 0}
@@ -687,15 +698,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11900000, guid: 28a5e79925e3ce04a82856c16a572cbe, type: 3}
       propertyPath: m_OrthographicSize
-      value: 1.5
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 11900000, guid: 28a5e79925e3ce04a82856c16a572cbe, type: 3}
       propertyPath: m_IgnoreLayers.m_Bits
       value: 512
-      objectReference: {fileID: 0}
-    - target: {fileID: 11900000, guid: 28a5e79925e3ce04a82856c16a572cbe, type: 3}
-      propertyPath: m_NearClipPlane
-      value: 0.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28a5e79925e3ce04a82856c16a572cbe, type: 3}
@@ -1166,6 +1173,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2173f09adad326e4fb2219ea96d19bd6, type: 3}
+--- !u!95 &9022055036035253915 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9500000, guid: 2173f09adad326e4fb2219ea96d19bd6,
+    type: 3}
+  m_PrefabInstance: {fileID: 9022055036027876347}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9022055036027480267 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400176, guid: 2173f09adad326e4fb2219ea96d19bd6,
