@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Destructible : MonoBehaviour
 {
-    [SerializeField] float hitPoints;
+	[SerializeField] [HideInInspector] public float hitPoints;
     public event System.Action OnDeath;
     public event System.Action OnDamageRecived;
     float damageTaken;
