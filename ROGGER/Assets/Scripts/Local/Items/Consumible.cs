@@ -20,9 +20,9 @@ public class Consumible : MonoBehaviour
 	}
 
 	void Update(){
-		if(player.==){
+	/*	if(player.==){
 			
-		}
+		}*/
 	}
 
 	void OnTriggerEnter(){
