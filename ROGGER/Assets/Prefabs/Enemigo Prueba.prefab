@@ -9,10 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1683731503697135626}
-  - component: {fileID: 1683731503697135622}
   - component: {fileID: 1848658093}
   - component: {fileID: 754141619511214699}
+  - component: {fileID: 8526983986762247789}
   - component: {fileID: 906559790668725002}
+  - component: {fileID: 1683731503697135622}
+  - component: {fileID: 1898985938}
   m_Layer: 0
   m_Name: Enemigo Prueba
   m_TagString: Untagged
@@ -35,20 +37,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1683731503697135622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1683731503697135623}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8211c8db5a564a4e93f5dbdd24b5ebb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitPoints: 600
-  timeToRespawn: 2
 --- !u!54 &1848658093
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -63,7 +51,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!136 &754141619511214699
 CapsuleCollider:
@@ -79,6 +67,18 @@ CapsuleCollider:
   m_Height: 1.6
   m_Direction: 1
   m_Center: {x: 0, y: 0.75, z: 0.15}
+--- !u!114 &8526983986762247789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683731503697135623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7a3bf75ad814a84eb7301075dcbd9fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &906559790668725002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,8 +91,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f68f840c075ee24596d2fed58a460fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewRadius: 10
-  viewAngle: 90
+  viewRadius: 20
+  viewAngle: 70
   targetMask:
     serializedVersion: 2
     m_Bits: 512
@@ -100,6 +100,40 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   playerVisible: {fileID: 0}
+  animator: {fileID: 0}
+--- !u!114 &1683731503697135622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683731503697135623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8211c8db5a564a4e93f5dbdd24b5ebb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalHP: 300
+  timeToRespawn: 2
+--- !u!95 &1898985938
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683731503697135623}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 11577c9683f00d847b5568e9092bf959, type: 3}
+  m_Controller: {fileID: 9100000, guid: 95d170045388fec43b6b0312cfd3755a, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7338484035275217202
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,6 +221,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 11577c9683f00d847b5568e9092bf959, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 11577c9683f00d847b5568e9092bf959, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 95d170045388fec43b6b0312cfd3755a, type: 2}
@@ -194,7 +232,8 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 1f388dfeed9348d43af356c2d93cf551, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9500000, guid: 11577c9683f00d847b5568e9092bf959, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 11577c9683f00d847b5568e9092bf959, type: 3}
 --- !u!4 &5986470511517878295 stripped
 Transform:

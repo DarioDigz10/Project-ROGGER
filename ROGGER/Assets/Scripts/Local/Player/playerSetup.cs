@@ -9,7 +9,7 @@ public class playerSetup : Destructible
 	[SerializeField] float regen; 
 
 	void Start(){
-		this.hitPoints = totalHealth;
+		this.totalHP = totalHealth;
 		this.actualHealth = totalHealth;
 
 	}
