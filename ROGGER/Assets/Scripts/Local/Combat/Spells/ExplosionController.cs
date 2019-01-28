@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ExplosionController : MonoBehaviour
 {
-
     [SerializeField] float timeToDespawn = 1f;
     // Start is called before the first frame update
     void Start()
@@ -13,11 +12,5 @@ public class ExplosionController : MonoBehaviour
         {
             Destroy(gameObject);
         }, timeToDespawn);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

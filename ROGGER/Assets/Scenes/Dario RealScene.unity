@@ -294,7 +294,7 @@ GameObject:
   - component: {fileID: 1055227069}
   - component: {fileID: 1055227068}
   m_Layer: 10
-  m_Name: Cube
+  m_Name: Obstaculo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -540,6 +540,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 555c665c2037a45419ed8be309733cb2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8530f4322bdd0724ba1e035cd86030d4, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 555c665c2037a45419ed8be309733cb2, type: 3}
 --- !u!1001 &954884790366690515
@@ -557,7 +561,7 @@ PrefabInstance:
     - target: {fileID: 3319648770700083215, guid: 95d45c990a4ddc24a9e5d667c3d94d7f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.98
       objectReference: {fileID: 0}
     - target: {fileID: 3319648770700083215, guid: 95d45c990a4ddc24a9e5d667c3d94d7f,
         type: 3}
@@ -567,7 +571,7 @@ PrefabInstance:
     - target: {fileID: 3319648770700083215, guid: 95d45c990a4ddc24a9e5d667c3d94d7f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 6.9
       objectReference: {fileID: 0}
     - target: {fileID: 3319648770700083215, guid: 95d45c990a4ddc24a9e5d667c3d94d7f,
         type: 3}
@@ -1116,7 +1120,7 @@ PrefabInstance:
     - target: {fileID: 1683731503697135626, guid: fa8013f269fcb4c4ea12ed65f4e9681c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.140481
+      value: -15.8
       objectReference: {fileID: 0}
     - target: {fileID: 1683731503697135626, guid: fa8013f269fcb4c4ea12ed65f4e9681c,
         type: 3}
@@ -1126,7 +1130,7 @@ PrefabInstance:
     - target: {fileID: 1683731503697135626, guid: fa8013f269fcb4c4ea12ed65f4e9681c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.2990878
+      value: 1.19
       objectReference: {fileID: 0}
     - target: {fileID: 1683731503697135626, guid: fa8013f269fcb4c4ea12ed65f4e9681c,
         type: 3}

@@ -2,24 +2,29 @@
 
 public class Attack1 : StateMachineBehaviour
 {
-    Transform player;
-    [SerializeField] float jumpSpeed;
     public GameObject explosionEffect;
-    Vector3 playerSeenPos;
 
-    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+    Vector3 playerSeenPos;
+    float jumpAngle;
+    float jumpSpeed;
+
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-        player = GameManager.Instance.Player.transform;
-        playerSeenPos = player.position;
-        animator.transform.LookAt(player);
+        playerSeenPos = GameManager.Instance.Player.transform.position;
+        animator.transform.LookAt(new Vector3(playerSeenPos.x, animator.transform.position.y, playerSeenPos.z));
+
+        jumpAngle = Random.Range(10f, 85f);
+
+        float distanceToPlayer = Vector3.Distance(animator.transform.position, playerSeenPos);
+        jumpSpeed = Mathf.Sqrt(distanceToPlayer * Physics.gravity.magnitude / Mathf.Sin(2f * jumpAngle * Mathf.Deg2Rad));
+
+        animator.GetComponent<Rigidbody>().velocity = Vector3.up * jumpSpeed;
     }
 
-    //OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         animator.transform.position = Vector3.MoveTowards(animator.transform.position, playerSeenPos, jumpSpeed * Time.deltaTime);
+        if (Vector3.Distance(playerSeenPos, animator.transform.position) <= 2.5f) animator.SetBool("player seen", false);
     }
 
-    //OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         Instantiate(explosionEffect, animator.transform.position, animator.transform.rotation);
     }

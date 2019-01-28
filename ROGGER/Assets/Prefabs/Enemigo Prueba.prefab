@@ -52,7 +52,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!136 &754141619511214699
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -91,8 +91,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f68f840c075ee24596d2fed58a460fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewRadius: 20
-  viewAngle: 70
+  viewRadius: 15
+  tooCloseRadius: 7.5
+  viewAngle: 130
   targetMask:
     serializedVersion: 2
     m_Bits: 512

@@ -5,6 +5,7 @@ public class EnemySight : MonoBehaviour
 {
     [Header("Sight Parameters")]
     public float viewRadius;
+    public float tooCloseRadius;
     [Range(0, 360)]
     public float viewAngle;
 
@@ -15,7 +16,7 @@ public class EnemySight : MonoBehaviour
     [HideInInspector] public Animator animator;
 
     private void Start() {
-        StartCoroutine("FindtargetsWithDelay", .5f);
+        StartCoroutine("FindtargetsWithDelay", .2f);
         animator = gameObject.GetComponent<Animator>();
     }
 
@@ -27,16 +28,18 @@ public class EnemySight : MonoBehaviour
     }
 
     void FindVisibleTargets() {
+        if (animator.GetBool("player seen") == true) return;
         playerVisible = null;
         Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
         foreach (Collider collider in targetsInViewRadius) {
             Transform target = collider.transform;
+            if (Vector3.Distance(target.position, transform.position) < tooCloseRadius) animator.SetBool("player seen", true);
             Vector3 dirToTarget = (target.position - transform.position).normalized;
             if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2) {
                 float distToTarget = Vector3.Distance(transform.position, target.position);
                 if (!Physics.Raycast(transform.position, dirToTarget, distToTarget, obstacleMask) && Physics.Raycast(transform.position, dirToTarget, distToTarget, targetMask)) {
                     playerVisible = target;
-                    animator.SetTrigger("player seen");
+                    animator.SetBool("player seen", true);
                 }
             }
         }
