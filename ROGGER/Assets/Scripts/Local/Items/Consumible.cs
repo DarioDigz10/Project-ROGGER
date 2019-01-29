@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Consumible : MonoBehaviour
 {
@@ -8,24 +6,17 @@ public class Consumible : MonoBehaviour
 	[SerializeField] float increaseHealth;
 	Player player;
 	bool picked;
-
-	public enum TipoPocion
-	{
-		Vida, Mana
-	};
-	public TipoPocion tipo;
-
+  
 	void Start(){
 		player = GameManager.Instance.Player;	
 	}
 
-	void Update(){
-	/*	if(player.==){
-			
-		}*/
-	}
-
-	void OnTriggerEnter(){
-		
+	void OnTriggerEnter(Collider player){
+        playerSetup ps = player.GetComponent<playerSetup>();
+        ps.actualHealth += increaseHealth;
+        if (ps.actualHealth>100) {
+            ps.actualHealth = 100;
+        }
+        Destroy(gameObject);
 	}
 }
