@@ -16,7 +16,7 @@ public class FieldOfViewEditor : Editor
         Handles.DrawLine(es.transform.position, es.transform.position + viewAngleA * es.viewRadius);
         Handles.DrawLine(es.transform.position, es.transform.position + viewAngleB * es.viewRadius);
 
-        Handles.color = Color.red;
+        Handles.color = Color.cyan;
         if (es.playerVisible != null) Handles.DrawLine(es.transform.position, es.playerVisible.position);
 
     }

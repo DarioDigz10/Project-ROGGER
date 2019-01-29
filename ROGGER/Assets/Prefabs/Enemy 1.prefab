@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1683731503697135622}
   - component: {fileID: 1898985938}
   m_Layer: 0
-  m_Name: Enemigo Prueba
+  m_Name: Enemigo1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewRadius: 15
-  tooCloseRadius: 7.5
+  tooCloseRadius: 6
   viewAngle: 130
   targetMask:
     serializedVersion: 2
@@ -221,20 +221,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9500000, guid: 11577c9683f00d847b5568e9092bf959, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9500000, guid: 11577c9683f00d847b5568e9092bf959, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 95d170045388fec43b6b0312cfd3755a, type: 2}
     - target: {fileID: 13700000, guid: 11577c9683f00d847b5568e9092bf959, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 1f388dfeed9348d43af356c2d93cf551, type: 2}
-    m_RemovedComponents:
-    - {fileID: 9500000, guid: 11577c9683f00d847b5568e9092bf959, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11577c9683f00d847b5568e9092bf959, type: 3}
 --- !u!4 &5986470511517878295 stripped
 Transform:

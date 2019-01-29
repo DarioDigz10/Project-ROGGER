@@ -1,32 +1,23 @@
 ﻿using UnityEngine;
 
-public class Attack1 : StateMachineBehaviour
+public class E2_Attack1 : StateMachineBehaviour
 {
-    public GameObject explosionEffect;
-
     Vector3 playerSeenPos;
-    float jumpAngle;
-    float jumpSpeed;
+    public float attackSpeed;
+    [SerializeField] GameObject weapon;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         playerSeenPos = GameManager.Instance.Player.transform.position;
-        animator.transform.LookAt(new Vector3(playerSeenPos.x, animator.transform.position.y, playerSeenPos.z));
-
-        jumpAngle = Random.Range(10f, 85f);
-
-        float distanceToPlayer = Vector3.Distance(animator.transform.position, playerSeenPos);
-        jumpSpeed = Mathf.Sqrt(distanceToPlayer * Physics.gravity.magnitude / Mathf.Sin(2f * jumpAngle * Mathf.Deg2Rad));
-
-        animator.GetComponent<Rigidbody>().velocity = Vector3.up * jumpSpeed;
+        weapon = animator.transform.Find("Weapon").gameObject;
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-        animator.transform.position = Vector3.MoveTowards(animator.transform.position, playerSeenPos, jumpSpeed * Time.deltaTime);
-        if (Vector3.Distance(playerSeenPos, animator.transform.position) <= 2.5f) animator.SetBool("player seen", false);
+        weapon.transform.position = Vector3.MoveTowards(weapon.transform.position, playerSeenPos, attackSpeed * Time.deltaTime);
+        if (Vector3.Distance(playerSeenPos, animator.transform.position) <= 1f) animator.SetBool("player seen", false);
     }
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-        Instantiate(explosionEffect, animator.transform.position, animator.transform.rotation);
+
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

@@ -5,7 +5,7 @@ using UnityEngine;
 public class playerSetup : Destructible
 {
 	public float totalHealth;
-	[SerializeField] private float actualHealth;
+	[SerializeField] public float actualHealth;
 	[SerializeField] float regen; 
 
 	void Start(){
