@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
 
 [RequireComponent(typeof(atractionController))]
 public class RoggerController : MonoBehaviour
@@ -24,6 +25,7 @@ public class RoggerController : MonoBehaviour
 
     private bool atraido;
     [HideInInspector] public bool search;
+	private bool waiting;
 
     //[HideInInspector] public bool busqueda;
 
@@ -57,17 +59,12 @@ public class RoggerController : MonoBehaviour
         }
 
         atraido = false;
-        //search = false;
-        //busqueda = false;
+        waiting = false;
     }
 
     void FixedUpdate() {
-        /*
-		if (agent.remainingDistance <= 0.5) {
-			newPath ();
-		}*/
-
-        if (targetTime <= 0 && agent.remainingDistance <= 0.5) {
+		
+		if (targetTime <= 0 && agent.remainingDistance <= 0.5 && waiting == false) {
             //search = true;
             //busqueda = true;
             atraido = false;
@@ -79,8 +76,6 @@ public class RoggerController : MonoBehaviour
         else {
             targetTime -= Time.deltaTime;
         }
-
-        //Debug.Log (agent.remainingDistance + " distance");
 
     }
 
@@ -107,8 +102,26 @@ public class RoggerController : MonoBehaviour
 
     public void atractiblePath(Vector3 destino) {
         Debug.Log(destino + "ATRAIDO DIOS MIO HAZ QUE PARE");
-		agent.SetDestination(destino);
-        atraido = true;
-        targetTime = time;
+		//agent.SetDestination(destino);
+		//new WaitForSeconds (2);
+		//Debug.Log ("ahora voy palla");
+		atraido = true;
+		targetTime = time;
+		StartCoroutine(waitAndGo(destino));
+		//atraido = true;
+		//targetTime = time;
     }
+
+	IEnumerator waitAndGo(Vector3 destination){
+		Debug.Log ("corutina xdlmao");
+		yield return new WaitForSecondsRealtime (2);
+		Debug.Log ("ahora voy palla");
+		agent.SetDestination(destination);
+		if (agent.remainingDistance <= 0.5) {
+			waiting = true;
+			Debug.Log("Completo y vuelvo a esperar");
+			yield return new WaitForSecondsRealtime (2);
+		}
+		waiting = false;
+	}
 }

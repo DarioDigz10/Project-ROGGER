@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ManaRegen : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider )
+/*    private void OnTriggerEnter(Collider )
     {
         
-    }
+    }*/
 }
