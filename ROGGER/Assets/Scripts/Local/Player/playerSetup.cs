@@ -5,7 +5,7 @@ using UnityEngine;
 public class playerSetup : Destructible
 {
 	public float totalHealth;
-	[SerializeField] private float actualHealth;
+    public float actualHealth;
 	[SerializeField] float regen; 
 
 	void Start(){
@@ -23,5 +23,8 @@ public class playerSetup : Destructible
 
 	void regeneration(){
 		actualHealth = actualHealth + regen*Time.deltaTime;
+        if (actualHealth>100) {
+            actualHealth = 100;
+        }
 	}
 }

@@ -179,7 +179,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1081794127
 GameObject:
@@ -271,7 +271,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &954884790366690515
 PrefabInstance:
@@ -340,6 +340,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8307835062906390260, guid: 95d45c990a4ddc24a9e5d667c3d94d7f,
+        type: 3}
+      propertyPath: actualHealth
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95d45c990a4ddc24a9e5d667c3d94d7f, type: 3}
 --- !u!1001 &1683731504171066961
@@ -353,6 +358,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemigo Prueba
+      objectReference: {fileID: 0}
+    - target: {fileID: 1683731503697135623, guid: fa8013f269fcb4c4ea12ed65f4e9681c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1683731503697135626, guid: fa8013f269fcb4c4ea12ed65f4e9681c,
         type: 3}
@@ -480,3 +490,72 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39b6cacdd13f9da4c9aefd3b2e3a105a, type: 3}
+--- !u!1001 &3603259888298000587
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3603259889490167581, guid: 5af96329b23beeb4c876a0031861db27,
+        type: 3}
+      propertyPath: m_Name
+      value: Poti Pum TocoTon
+      objectReference: {fileID: 0}
+    - target: {fileID: 3603259889490167568, guid: 5af96329b23beeb4c876a0031861db27,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.413
+      objectReference: {fileID: 0}
+    - target: {fileID: 3603259889490167568, guid: 5af96329b23beeb4c876a0031861db27,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.717
+      objectReference: {fileID: 0}
+    - target: {fileID: 3603259889490167568, guid: 5af96329b23beeb4c876a0031861db27,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.202
+      objectReference: {fileID: 0}
+    - target: {fileID: 3603259889490167568, guid: 5af96329b23beeb4c876a0031861db27,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.021247126
+      objectReference: {fileID: 0}
+    - target: {fileID: 3603259889490167568, guid: 5af96329b23beeb4c876a0031861db27,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.017114492
+      objectReference: {fileID: 0}
+    - target: {fileID: 3603259889490167568, guid: 5af96329b23beeb4c876a0031861db27,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.010659631
+      objectReference: {fileID: 0}
+    - target: {fileID: 3603259889490167568, guid: 5af96329b23beeb4c876a0031861db27,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99957097
+      objectReference: {fileID: 0}
+    - target: {fileID: 3603259889490167568, guid: 5af96329b23beeb4c876a0031861db27,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3603259889490167568, guid: 5af96329b23beeb4c876a0031861db27,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -2.414
+      objectReference: {fileID: 0}
+    - target: {fileID: 3603259889490167568, guid: 5af96329b23beeb4c876a0031861db27,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 1.988
+      objectReference: {fileID: 0}
+    - target: {fileID: 3603259889490167568, guid: 5af96329b23beeb4c876a0031861db27,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -1.264
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5af96329b23beeb4c876a0031861db27, type: 3}
