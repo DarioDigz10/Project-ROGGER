@@ -591,9 +591,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c90db9285f48af48b5e5d4b9fee16c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoints: 50
+  totalHP: 0
   totalHealth: 100
   actualHealth: 91.6
+  actualMana: 100
+  totalMana: 100
   regen: 1
 --- !u!1 &6342924580734664484
 GameObject:

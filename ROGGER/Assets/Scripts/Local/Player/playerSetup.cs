@@ -6,6 +6,8 @@ public class playerSetup : Destructible
 {
 	public float totalHealth;
     public float actualHealth;
+    public float actualMana;
+    public float totalMana;
 	[SerializeField] float regen; 
 
 	void Start(){
