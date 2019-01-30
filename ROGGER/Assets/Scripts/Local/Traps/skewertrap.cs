@@ -2,7 +2,7 @@
 
 public class skewertrap : MonoBehaviour
 {
-    /*Player player;
+    Player player;
     [SerializeField] float damage;
     [SerializeField] float trampaDesactivada;
     private bool activada=false;
@@ -35,5 +35,5 @@ public class skewertrap : MonoBehaviour
         }
     }
 
-    */
+   
 }
