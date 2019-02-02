@@ -1,32 +1,34 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class playerSetup : Destructible
+public class PlayerSetup : Destructible
 {
-	public float totalHealth;
+    [SerializeField] float TotalMana;
     public float actualHealth;
     public float actualMana;
-    public float totalMana;
-	[SerializeField] float regen; 
+    [SerializeField] float HPRegen;
 
-	void Start(){
-		this.totalHP = totalHealth;
-		this.actualHealth = totalHealth;
+    public float totalMana
+    {
+        get {
+            return TotalMana;
+        }
+    }
 
-	}
+    void Start() {
+        actualHealth = totalHP;
+        actualMana = TotalMana;
+    }
 
-	void Update(){
-		if(actualHealth < totalHealth){
-			regeneration ();
-		}
-	
-	}
+    void Update() {
+        if (actualHealth < totalHP) {
+            regeneration();
+        }
+    }
 
-	void regeneration(){
-		actualHealth = actualHealth + regen*Time.deltaTime;
-        if (actualHealth>100) {
+    void regeneration() {
+        actualHealth += HPRegen * Time.deltaTime;
+        if (actualHealth > 100) {
             actualHealth = 100;
         }
-	}
+    }
 }

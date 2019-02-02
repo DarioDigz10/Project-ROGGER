@@ -328,6 +328,7 @@ MonoBehaviour:
   bullet: {fileID: 8882079335042655132, guid: 99cdfe10956ebfd49bd11bc1a189fc16, type: 3}
   rateOfFire: 0.8
   shotSpeed: 25
+  manaCost: 0
   canFire: 0
   reloader: {fileID: 0}
   pelletCount: 20
@@ -458,6 +459,7 @@ MonoBehaviour:
   bullet: {fileID: 8882079335042655132, guid: 99cdfe10956ebfd49bd11bc1a189fc16, type: 3}
   rateOfFire: 0.1
   shotSpeed: 20
+  manaCost: 1
   canFire: 0
   reloader: {fileID: 0}
 --- !u!1 &3319648770700083208
@@ -591,12 +593,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c90db9285f48af48b5e5d4b9fee16c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalHP: 0
-  totalHealth: 100
-  actualHealth: 91.6
-  actualMana: 100
-  totalMana: 100
-  regen: 1
+  totalHP: 100
+  TotalMana: 100
+  actualHealth: 0
+  actualMana: 0
+  HPRegen: 0
 --- !u!1 &6342924580734664484
 GameObject:
   m_ObjectHideFlags: 0

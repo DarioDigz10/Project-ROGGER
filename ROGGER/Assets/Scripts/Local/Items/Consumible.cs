@@ -12,7 +12,7 @@ public class Consumible : MonoBehaviour
 	}
 
 	void OnTriggerEnter(Collider player){
-        playerSetup ps = player.GetComponent<playerSetup>();
+        PlayerSetup ps = player.GetComponent<PlayerSetup>();
         ps.actualHealth += increaseHealth;
         if (ps.actualHealth>100) {
             ps.actualHealth = 100;

@@ -7,6 +7,7 @@ public class Shooter : MonoBehaviour
     [Header("Gun Common variables")]
     [SerializeField] float rateOfFire;
     public float shotSpeed;
+    public float manaCost;
 
     [HideInInspector] public bool canFire;
     float nextFireAllowed;

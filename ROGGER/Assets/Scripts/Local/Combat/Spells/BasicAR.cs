@@ -11,6 +11,7 @@ public class BasicAR : Shooter
         {
             BulletController newBullet = Instantiate(bullet, firePoint.position, firePoint.rotation) as BulletController;
             newBullet.speed = shotSpeed;
+            GameManager.Instance.Player.GetComponent<PlayerSetup>().actualMana -= manaCost;
         }
     }
 }

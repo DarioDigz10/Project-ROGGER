@@ -2,20 +2,17 @@
 
 public class ManaRegen : MonoBehaviour
 {
-    Player player;
     [SerializeField] float regen;
+    PlayerSetup player;
 
-    void Start()
-    {
-        player = GameManager.Instance.Player;
+    void Start() {
+        player = GameManager.Instance.Player.GetComponent<PlayerSetup>();
     }
 
-    private void OnTriggerEnter(Collider enemy)
-    { 
-        if (enemy.CompareTag("Enemy")){
-            playerSetup mana = player.GetComponent<playerSetup>();
-            if (mana.actualMana < mana.totalMana) {
-                mana.actualMana += regen;
+    private void OnTriggerEnter(Collider enemy) {
+        if (enemy.CompareTag("Enemy")) {
+            if (player.actualMana < player.totalMana) {
+                player.actualMana += regen;
             }
         }
     }

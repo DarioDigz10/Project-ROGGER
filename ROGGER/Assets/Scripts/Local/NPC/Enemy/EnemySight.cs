@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(EnemySetup))]
 public class EnemySight : MonoBehaviour
 {
     [Header("Sight Parameters")]
